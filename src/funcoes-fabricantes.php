@@ -2,9 +2,11 @@
 
 require_once "../src/conecta.php";
 
+
+
 // carregar os dados dos fabricantes
 
-function lerFabricantes(){
+function lerFabricantes($conexao){
 
         //string com comando sql
         $sql = "SELECT id, nome FROM fabricantes";

@@ -1,5 +1,6 @@
 <?php
-require_once "../src/conecta.php";
+require_once "../src/funcoes-fabricantes.php";
+$listaDeFabricantes = lerFabricantes($conexao);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,30 +26,22 @@ require_once "../src/conecta.php";
             </thead>
             <tbody>
 <?php
-
-
    /* echo "<pre>";
     var_dump($resultado);
     echo "</pre>"; */
-
-    foreach($resultado as $fabricante){
-       
+    foreach($resultado as $fabricante){    
 ?>
-        <tr>
-        
+        <tr>  
             <td>
                 <?= $fabricante['id']?>
             </td>
-
             <td>
             <?= $fabricante['nome']?>
             </td>
         </tr>
         <?php
     }
-
-?>
-                  
+?>    
             </tbody>
         </table>
     </div>
