@@ -1,3 +1,8 @@
+<?php
+/*Script de conehão ao servidor banco de dados */
+$servidor = "localhost";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
