@@ -1,6 +1,9 @@
 <?php
 /*Script de conehão ao servidor banco de dados */
 $servidor = "localhost";
+$usuario = "root";
+$senha = "";
+$banco = "vendas";
 ?>
 
 <!DOCTYPE html>
