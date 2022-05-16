@@ -8,6 +8,10 @@ $banco = "vendas";
 //Criando a conexão com o MySQL (API/ Driver de conexão)
 
 $conexão = new PDO("mysql:host=$servidor; dbname=$banco; charset=utf8", $usuario, $senha);
+
+// Habilita a  verificação de erros
+$conexao->setAttribute(PDO::ATTR_ERRMODE, // constante de erros em geral 
+PDO::ERRMODE_EXCEPTION) // constande de exceção de erros
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
