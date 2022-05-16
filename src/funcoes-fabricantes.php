@@ -1,9 +1,6 @@
 <?php
 
 require_once "../src/conecta.php";
-
-
-
 // carregar os dados dos fabricantes
 
 function lerFabricantes(PDO $conexao):array{
@@ -25,9 +22,8 @@ function lerFabricantes(PDO $conexao):array{
         die("Erro: ".$erro->getMessage());
     }
     return $resultado;
- ?>
+}
 
+function inserirFabricante(PDO $conexao, string $nome){
 
-
- <?php
 }

@@ -1,3 +1,11 @@
+<?php
+    if(isset($_POST['inserir'])){
+        //echo "ok!";
+        require_once "../src/funcoes-fabricantes.php";
+        $nome = $_POST['nome'];
+        inserirFabricante($conexao, $nome);
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +22,7 @@
         <div class="little-form-container">
         <p>
         <label for="nome"> Inserir Fabricante</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite o nome do Fabricante ">
+        <input type="text" name="nome" id="nome" placeholder="Digite o nome do Fabricante">
         </p>
         <button type="submit" name="inserir">
             Inserir
