@@ -11,7 +11,19 @@
         <h1>Fabricantes | Select</h1>
         <hr>
         <h2>Lendo e carregando todos os fabricantes</h2>
-        
+
+        <table>
+            <caption>Lista de fabricantes</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

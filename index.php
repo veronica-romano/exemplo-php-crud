@@ -14,7 +14,7 @@
         <p> Operações de <b>Inserção</b>, <b>Leitura</b>, <b>Atualização</b> e <b>Exclusão</b> de dados. </p>
 
         <ul>
-            <li><a href="/fabricantes/listar.php">Fabricantes</a></li>
+            <li><a href="http://localhost/exemplo-php-crud/exemplo-php-crud/fabricantes/listar.php">Fabricantes</a></li>
             <li><a href="">Produtos</a></li>
         </ul>
 
