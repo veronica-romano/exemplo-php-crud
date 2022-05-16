@@ -19,6 +19,7 @@ function lerFabricantes($conexao){
     
         //capturar os resultados
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        return $resultado;
  ?>
 
 

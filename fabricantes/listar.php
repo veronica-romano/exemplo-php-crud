@@ -29,7 +29,7 @@ $listaDeFabricantes = lerFabricantes($conexao);
    /* echo "<pre>";
     var_dump($resultado);
     echo "</pre>"; */
-    foreach($resultado as $fabricante){    
+    foreach($listaDeFabricantes as $fabricante){    
 ?>
         <tr>  
             <td>
