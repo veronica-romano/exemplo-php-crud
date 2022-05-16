@@ -4,6 +4,10 @@ $servidor = "localhost";
 $usuario = "root";
 $senha = "";
 $banco = "vendas";
+
+//Criando a conexão com o MySQL (API/ Driver de conexão)
+
+$conexão = new PDO("mysql:host=$servidor; dbname=$banco; charset=utf8", $usuario, $senha);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
