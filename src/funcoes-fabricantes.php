@@ -27,7 +27,7 @@ function inserirFabricante(PDO $conexao, string $nome):void{ //:void para a funÃ
         die("Erro: ".$erro->getMessage());
     }
 }
-function lerUmFabricante(PDO $conexao, int $id){
+function lerUmFabricante(PDO $conexao, int $id):array{
     $sql = "SELECT id, nome FROM fabricantes id = :id";
     try {
         $consulta = $conexao->prepare($sql);
@@ -35,6 +35,6 @@ function lerUmFabricante(PDO $conexao, int $id){
         $consulta->execute();
         $resultado = $consulta->fetch(PDO::FETCH_ASSOC); 
     } catch (Exception $erro) {
-        die("Erro: ".$erro->getMessage);
-    }
+        die("Erro: ".$erro->getMessage());
+    } return $resultado;
 }
