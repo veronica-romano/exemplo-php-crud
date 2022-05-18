@@ -5,7 +5,6 @@ require_once "../src/funcoes-fabricantes.php";
     $fabricante = lerUmFabricante($conexao, $id);
 
 ?> 
-<pre><?= var_dump($fabricante)?></pre>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,8 +21,9 @@ require_once "../src/funcoes-fabricantes.php";
         <form action="" method="post">
         <div class="little-form-container">
         <p>
-        <label for="nome"> Atualizar Fabricante</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite o nome do Fabricante">
+        <input type="hidden" name="<?=$fabricante['nome']?>">
+        <label for="nome"> Nome:</label>
+        <input value="<?=$fabricante['nome']?>" type="text" name="nome" id="nome" placeholder="Digite o nome do Fabricante">
         </p>
         <button type="submit" name="atualizar">
             Atualizar
