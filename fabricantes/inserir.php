@@ -18,6 +18,7 @@
     <div class="container">
         <h1>Fabricantes | Inserir</h1>
         <hr>
+        <p><a href="../fabricantes/listar.php">Voltar para a lista de fabricantes</a></p>
         <form action="" method="post">
         <div class="little-form-container">
         <p>
