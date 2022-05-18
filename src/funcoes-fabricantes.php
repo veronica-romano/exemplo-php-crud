@@ -27,3 +27,6 @@ function inserirFabricante(PDO $conexao, string $nome):void{ //:void para a funÃ
         die("Erro: ".$erro->getMessage());
     }
 }
+function lerUmFabricante(PDO $conexao, int $id){
+    $sql = "SELECT id, nome FROM fabricantes id = :id";
+}
