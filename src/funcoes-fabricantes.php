@@ -25,5 +25,5 @@ function lerFabricantes(PDO $conexao):array{
 }
 
 function inserirFabricante(PDO $conexao, string $nome){
-    
+    $sql = "INSERT INTO fabricantes(nome) VALUES ('$nome')";
 }
