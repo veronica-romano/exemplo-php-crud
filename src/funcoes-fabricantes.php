@@ -28,7 +28,7 @@ function inserirFabricante(PDO $conexao, string $nome):void{ //:void para a funÃ
     }
 }
 function lerUmFabricante(PDO $conexao, int $id):array{
-    $sql = "SELECT id, nome FROM fabricantes id = :id";
+    $sql = "SELECT id, nome FROM fabricantes WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
