@@ -2,7 +2,7 @@
     if(isset($_POST['inserir'])){
         //echo "ok!";
         require_once "../src/funcoes-fabricantes.php";
-        $nome = $_POST['nome'];
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
         inserirFabricante($conexao, $nome);
     }
 ?>
