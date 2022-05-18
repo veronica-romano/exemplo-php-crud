@@ -17,7 +17,7 @@ function lerFabricantes(PDO $conexao):array{
     return $resultado;
 }
 function inserirFabricante(PDO $conexao, string $nome):void{ //:void para a função não retornar
-    $sql = "INSERT INTO fabricantes(nome) VALUES ('$nome')";
+    $sql = "INSERT INTO fabricantes(nome) VALUES (:nome)";
     try {
         $consulta = $conexao->prepare($sql);
         /*bindParam(':nomedoparametro', $variavelcomvalor, constantedeverificacao) */
