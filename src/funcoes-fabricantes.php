@@ -38,3 +38,13 @@ function lerUmFabricante(PDO $conexao, int $id):array{
         die("Erro: ".$erro->getMessage());
     } return $resultado;
 }
+function atualizarFabricante(PDO $conexao, int $id, string $nome):void{
+    $sql = "UPDADE fabricantes SET nome = :nome WHERE id = :id";
+    try {
+        $consulta = $conexao->prepare($sql);
+        $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $consulta->execute();
+    } catch (Exception $erro) {
+        die("Erro: ".$erro->getMessage());
+    }
+}
