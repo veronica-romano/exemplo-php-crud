@@ -52,7 +52,7 @@ $listaDeFabricantes = lerFabricantes($conexao);
             <?= $fabricante['nome']?>
             </td>
             <td><a href="atualizar.php?id=<?=$fabricante['id']?>">Atualizar</a></td>
-            <td><a href="excluir.php?id=<?=$fabricante['id']?>">Excluir</a></td>
+            <td><a href="excluir.php?id=<?=$fabricante['id']?>" id="excluir-a" >Excluir</a></td>
         </tr>
         <?php
     }
@@ -60,5 +60,6 @@ $listaDeFabricantes = lerFabricantes($conexao);
             </tbody>
         </table>
     </div>
+    <script src="script-listar.js"></script>
 </body>
 </html>

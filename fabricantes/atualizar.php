@@ -35,6 +35,7 @@ require_once "../src/funcoes-fabricantes.php";
         </div>
         </form>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
 
