@@ -16,6 +16,18 @@ $listaDeFabricantes = lerFabricantes($conexao);
         <hr>
         <h2>Lendo e carregando todos os fabricantes</h2>
         <p><a href="../fabricantes/inserir.php">Inserir um novo fabricante</a></p>
+        <?php
+           /* if (isset($_GET['status'])) {
+                ?>
+              <p> <?= $_GET['status'] ?> ao atualizar fabricante!</p>
+              <?php
+            } */
+            if (isset($_GET['status']) && $_GET['status'] == 'sucesso') {
+                ?>
+              <p> <?= $_GET['status'] ?> ao atualizar fabricante!</p>
+              <?php
+            }
+        ?>
         <table>
             <caption>Lista de fabricantes</caption>
             <thead>
