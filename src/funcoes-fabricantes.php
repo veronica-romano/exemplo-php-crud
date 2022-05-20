@@ -39,7 +39,7 @@ function lerUmFabricante(PDO $conexao, int $id):array{
     } return $resultado;
 }
 function atualizarFabricante(PDO $conexao, int $id, string $nome):void{
-    $sql = "UPDADE fabricantes SET nome = :nome WHERE id = :id";
+    $sql = "UPDATE fabricantes SET nome = :nome WHERE id = :id";
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
