@@ -45,10 +45,10 @@ $listaDeFabricantes = lerFabricantes($conexao);
     foreach($listaDeFabricantes as $fabricante){    
 ?>
         <tr>  
-            <td>
+            <td class="fabricantes id">
                 <?= $fabricante['id']?>
             </td>
-            <td>
+            <td class="fabricantes nome">
             <?= $fabricante['nome']?>
             </td>
             <td><a href="atualizar.php?id=<?=$fabricante['id']?>">Atualizar</a></td>
