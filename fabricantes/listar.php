@@ -52,7 +52,7 @@ $listaDeFabricantes = lerFabricantes($conexao);
             <?= $fabricante['nome']?>
             </td>
             <td><a href="atualizar.php?id=<?=$fabricante['id']?>">Atualizar</a></td>
-            <td><a href="excluir.php?id=<?=$fabricante['id']?>" class="exclusao" onclick="exclusao()" >Excluir</a></td>
+            <td><a href="excluir.php?id=<?=$fabricante['id']?>" class="exclusao" onclick="return confirm('Deseja mesmo excluir');" >Excluir</a></td>
         </tr>
         <?php
     }
