@@ -13,3 +13,12 @@ function lerProdutos(PDO $conexao):array{
     }
     return $resultado;
 }
+
+
+
+
+function dump($dados){
+    echo "<pre>";
+    var_dump($dados);
+    echo "<pre>";
+}
