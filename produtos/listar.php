@@ -11,7 +11,7 @@
         <h1>Produtos | Select</h1>
         <hr>
         <h2>Lendo e carregando todos os produto</h2>
-        <p><a src="/prudutos/listar.php">Inserir um novo produto</a></p>
+        <p><a src="/produtos/listar.php">Inserir um novo produto</a></p>
 
         <div class="produtos">
             <article>
