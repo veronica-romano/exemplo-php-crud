@@ -13,40 +13,35 @@ $listaDeProdutos = lerProdutos($conexao);
 </head>
 <body>
     <div class="container">
-        <h1>Produtos | Select</h1>
+        <h1>Produtos | Select </h1>
+        <a href="../index.php">Home</a>
         <hr>
         <h2>Lendo e carregando todos os produtos</h2>
         <p><a src="/produtos/listar.php">Inserir um novo produto</a></p>
         <div class="produtos">
-        <?php foreach($listaDeProdutos as $produto){    
+        <?php foreach($listaDeProdutos as $produto){ 
+          setlocale(LC_ALL, 'pt_BR');     
 ?>
             <article>
                 <hr>
-                <h3 class="produto-nome">Produto: <?= $produto['nome']?></h3>
-                <p class="fabricante-id">Fabricante: <?= $produto['fabricante_id']?></p>
-                <p class="produto-preco">Preço: <?= $produto['preco']?></p>
+                <h3 class="produto-nome">Produto: <?= $produto['produto']?></h3>
+                <p class="id">ID: <?= $produto['id']?></p>
+                <p class="fabricante-nome">Fabricante: <?= $produto['fabricante']?></p>
+                <p class="produto-preco">Preço: R$: <?=  number_format($produto['preco'], 2, ',', '.',)?></p>
                 <p class="produto-quantidade">Estoque: <?= $produto['quantidade']?></p>
                 <details>
                 <summary> Descrição</summary>
                 <p class="produto-descricao">Descrição: <?= $produto['descricao']?></p>
             </details>
             </article>
-            <label for="acoes">Ações:</label>
-            <select name="acoes" id="acoes">
-                <option value="selecione">Selecione</option>
-                <option value="atualizar"> Atualizar
-                    <a href="atualizar.php?id=<?=$produto['id']?>"></a>
-                </option>
-                <option value="excluir"> Excluir
-                    <a href="excluir.php?id=<?=$produto['id']?>" class="exclusao" onclick() ></a>
-                </option>
-            </select>
+                    <a href="atualizar.php?id=<?=$produto['id']?>">Atualizar</a>
+                    <a href="excluir.php?id=<?=$produto['id']?>" class="exclusao" onclick() >Excluir</a>
         <?php  
     }
 ?>
     </div>   
 
-
+    $produto['preco']
 
 
 
