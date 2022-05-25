@@ -1,3 +1,8 @@
+<?php
+require_once "../src/funcoes-produtos.php";
+$listaDeProdutos = lerProdutos($conexao);
+?>
+<pre><?=var_dump($listaDeProdutos)?></pre>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +15,7 @@
     <div class="container">
         <h1>Produtos | Select</h1>
         <hr>
-        <h2>Lendo e carregando todos os produto</h2>
+        <h2>Lendo e carregando todos os produtos</h2>
         <p><a src="/produtos/listar.php">Inserir um novo produto</a></p>
 
         <div class="produtos">
