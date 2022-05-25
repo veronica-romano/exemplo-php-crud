@@ -39,13 +39,7 @@ $listaDeProdutos = lerProdutos($conexao);
         <?php  
     }
 ?>
-    </div>   
-
-    $produto['preco']
-
-
-
-
+        </div>   
     </div>
 </body>
 </html>
