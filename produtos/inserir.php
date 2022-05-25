@@ -1,11 +1,4 @@
-<?php
-    if(isset($_POST['inserir'])){
-        require_once "../src/funcoes-produtos.php";
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-        inserirProduto($conexao, $nome);
-        header("location:listar.php");
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,7 +16,21 @@
         <div class="little-form-container">
         <p>
         <label for="nome"> Inserir Produto</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite o nome do Fabricante">
+        <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
+        </p>
+        <label for="fabricante">Fabricante</label>
+        <select name="fabricante" id="fabricante" required>
+            <option value="">Selecione o Fabricante</option>
+        </select>
+        <p>
+        <label for="preco"> Preço</label>
+        <input type="number" name="preco" id="preço" max="10000" step="0.01" required>
+        </p>
+        <label for="quantidade"> Quantidade</label>
+        <input type="number" name="preco" id="preço" max="100" required>
+        </p>
+        <label for=""> Descrição </label>
+        <textarea name="descricao" id="descricao" cols="28" rows="5" required></textarea>
         </p>
         <button type="submit" name="inserir">
             Inserir

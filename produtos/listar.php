@@ -17,7 +17,7 @@ $listaDeProdutos = lerProdutos($conexao);
         <a href="../index.php">Home</a>
         <hr>
         <h2>Lendo e carregando todos os produtos</h2>
-        <p><a src="/produtos/listar.php">Inserir um novo produto</a></p>
+        <p><a href="../produtos/inserir.php">Inserir um novo produto</a></p>
         <div class="produtos">
         <?php foreach($listaDeProdutos as $produto){ 
           setlocale(LC_ALL, 'pt_BR');     
