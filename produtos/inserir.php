@@ -1,3 +1,6 @@
+<?php
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +24,17 @@
         <label for="fabricante">Fabricante</label>
         <select name="fabricante" id="fabricante" required>
             <option value="">Selecione o Fabricante</option>
-        </select>
+            <?php 
+            require_once "../fabricantes/listar.php";
+            foreach($listaDeFabricantes as $fabricante){ 
+                      
+            ?>
+            <option value="<?= $fabricante['id']?>"> <?= $fabricante['nome']?></option>
+            
+            <?php  
+            }
+            ?>
+            </select>
         <p>
         <label for="preco"> Preço</label>
         <input type="number" name="preco" id="preço" max="10000" step="0.01" required>
@@ -36,9 +49,7 @@
             Inserir
         </button>
         </div>
-        </form>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
 
