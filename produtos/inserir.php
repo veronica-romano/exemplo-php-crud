@@ -1,5 +1,6 @@
 <?php
-
+require_once "../src/funcoes-fabricantes.php";
+$listaDeFabricantes = lerFabricantes($conexao);
 ?>
 
 <!DOCTYPE html>
@@ -15,8 +16,6 @@
         <h1>Produtos | Inserir</h1>
         <hr>
         <p><a href="../produtos/listar.php">Voltar para a lista de produtos</a></p>
-        <form action="" method="post">
-        <div class="little-form-container">
         <p>
         <label for="nome"> Inserir Produto</label>
         <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
@@ -25,7 +24,6 @@
         <select name="fabricante" id="fabricante" required>
             <option value="">Selecione o Fabricante</option>
             <?php 
-            require_once "../fabricantes/listar.php";
             foreach($listaDeFabricantes as $fabricante){ 
                       
             ?>
