@@ -7,7 +7,12 @@ if (isset($_POST['inserir'])) {
     $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT);
     $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
     $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
-    $fabricanteId = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
+    $fabricante_id = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
+
+    inserirProduto($conexao, $nome, $preco, $quantidade, $descricao, $fabricante_id);
+
+    header("location:listar.php");
+
 }
 
 
@@ -46,8 +51,8 @@ if (isset($_POST['inserir'])) {
         </p>
 
         <p>
-        <label for="fabricante">Fabricante</label>
-        <select name="fabricante" id="fabricante" required>
+        <label for="fabricante_id">Fabricante</label>
+        <select name="fabricante_id" id="fabricante_id" required>
             <option value="">Selecione o Fabricante</option>
             <?php 
             foreach($listaDeFabricantes as $fabricante){ 
