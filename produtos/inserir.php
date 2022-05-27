@@ -20,6 +20,22 @@ $listaDeFabricantes = lerFabricantes($conexao);
         <label for="nome"> Inserir Produto</label>
         <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
         </p>
+        <p>
+        <label for="preco"> Preço</label>
+        <input type="number" name="preco" id="preço" max="10000" step="0.01" required>
+        </p>
+
+        <p>
+        <label for="quantidade"> Quantidade</label>
+        <input type="number" name="preco" id="preço" max="100" required>
+        </p>
+
+        <p>
+        <label for=""> Descrição </label>
+        <textarea name="descricao" id="descricao" cols="28" rows="5" required></textarea>
+        </p>
+
+        <p>
         <label for="fabricante">Fabricante</label>
         <select name="fabricante" id="fabricante" required>
             <option value="">Selecione o Fabricante</option>
@@ -33,15 +49,6 @@ $listaDeFabricantes = lerFabricantes($conexao);
             }
             ?>
             </select>
-        <p>
-        <label for="preco"> Preço</label>
-        <input type="number" name="preco" id="preço" max="10000" step="0.01" required>
-        </p>
-        <label for="quantidade"> Quantidade</label>
-        <input type="number" name="preco" id="preço" max="100" required>
-        </p>
-        <label for=""> Descrição </label>
-        <textarea name="descricao" id="descricao" cols="28" rows="5" required></textarea>
         </p>
         <button type="submit" name="inserir">
             Inserir
