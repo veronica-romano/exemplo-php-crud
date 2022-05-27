@@ -1,22 +1,19 @@
 <?php
-require_once "../src/funcoes-fabricantes.php";
-$listaDeFabricantes = lerFabricantes($conexao);
-if (isset($_POST['inserir'])) {
-    require_once "../src/funcoes-produtos.php";
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-    $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-    $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
-    $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
-    $fabricante_id = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
+require_once "../src/funcoes-produtos.php";
+    $listaDeProdutos = lerProdutos($conexao);
 
-    inserirProduto($conexao, $nome, $preco, $quantidade, $descricao, $fabricante_id);
+    if (isset($_POST['atualizar'])) {
+        require_once "../src/funcoes-produtos.php";
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+        $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+        $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+        $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+        $fabricante_id = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
+        atualizarProduto($conexao, $id, $nome, $preco, $quantidade, $descricao, $fabricante_id);
+        header("location:listar.php?status=sucesso");
+    }
+?> 
 
-    header("location:listar.php");
-
-}
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,18 +21,18 @@ if (isset($_POST['inserir'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos - Inserir</title>
+    <title>Produtos - Atualizar</title>
 </head>
 <body>
     <div class="container">
-        <h1>Produtos | Inserir</h1>
+        <h1>Produtos | Update</h1>
         <hr>
 
         <p><a href="../produtos/listar.php">Voltar para a lista de produtos</a></p>
 
         <form action="" method="post">
         <p>
-        <label for="nome"> Inserir Produto</label>
+        <label for="nome">Produto</label>
         <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
         </p>
         <p>
@@ -56,8 +53,10 @@ if (isset($_POST['inserir'])) {
         <p>
         <label for="fabricante_id">Fabricante</label>
         <select name="fabricante_id" id="fabricante_id" required>
-            <option value="">Selecione o Fabricante</option>
+            <option value="<?= $Produtos[':id']?>">Selecione o Fabricante</option>
             <?php 
+            require_once "../src/funcoes-fabricantes.php";
+            $listaDeFabricantes = lerFabricantes($conexao);
             foreach($listaDeFabricantes as $fabricante){ 
                       
             ?>
@@ -68,13 +67,14 @@ if (isset($_POST['inserir'])) {
             ?>
             </select>
         </p>
-        <button type="submit" name="inserir">
-            Inserir
+
+        <button type="submit" name="atualizar">
+            Atualizar
         </button>
         </form>
 
 
-        </div>
+        
     </div>
 </body>
 </html>
