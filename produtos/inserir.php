@@ -1,6 +1,16 @@
 <?php
 require_once "../src/funcoes-fabricantes.php";
 $listaDeFabricantes = lerFabricantes($conexao);
+if (isset($_POST['inserir'])) {
+    require_once "../src/funcoes-produtos.php";
+    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+    $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT);
+    $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
+    $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
+    $fabricanteId = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
+}
+
+
 ?>
 
 <!DOCTYPE html>

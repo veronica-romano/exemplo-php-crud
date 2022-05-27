@@ -24,7 +24,7 @@ function dump($dados){
     echo "<pre>";
 }
 
-function inserirProduto(PDO  $conexao, string $nome, float $preco, int $quantidade, string $descicao, int $fabricanteId){
+function inserirProduto(PDO  $conexao, string $nome, float $preco, int $quantidade, string $descicao, int $fabricanteId):void{
     $sql = "INSERT INTO produtos(nome, preco, quantidade, descricao, fabricante_id) VALUES(:nome, :preco, :quantidade, :descricao, :fabricante_id)";
 
     try {
