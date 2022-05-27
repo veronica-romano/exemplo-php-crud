@@ -2,7 +2,7 @@
 require_once "../src/conecta.php";
 
 function lerProdutos(PDO $conexao):array{
-    $sql = "SELECT produtos.id, produtos.nome AS produto, produtos.preco, produtos.quantidade, produtos.descricao, fabricantes.id, fabricantes.nome AS fabricante FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY produto";
+    $sql = "SELECT produtos.id AS idproduto, produtos.nome AS produto, produtos.preco, produtos.quantidade, produtos.descricao, fabricantes.id, fabricantes.nome AS fabricante FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY produto";
 
     try {
         setlocale(LC_ALL, 'pt_BR');
@@ -46,14 +46,11 @@ function lerUmProduto(PDO $conexao, int $id):array{
     try {
         $consulta = $conexao->prepare($sql);
         $consulta->bindParam(':id', $id, PDO::PARAM_INT);
-        $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
-        $consulta->bindParam(':preco', $preco, PDO::PARAM_STR);
-        $consulta->bindParam(':quantidade', $quantidade, PDO::PARAM_INT);
-        $consulta->bindParam(':descricao', $descricao, PDO::PARAM_STR);
-        $consulta->bindParam(':fabricante_id', $fabricante_id, PDO::PARAM_INT);
         $consulta->execute();
-        $resultado = $consulta->fetch(PDO::FETCH_ASSOC); 
+        //$resultado = $consulta->fetch(PDO::FETCH_ASSOC); 
+        $resultado1 = $consulta->fetch(PDO::FETCH_ASSOC);
     } catch (Exception $erro) {
         die("Erro: ".$erro->getMessage());
-    } return $resultado;
+    } 
+    return $resultado1;
 }

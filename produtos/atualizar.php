@@ -2,19 +2,10 @@
 require_once "../src/funcoes-fabricantes.php";
 require_once "../src/funcoes-produtos.php";
     $listaDeFabricantes = lerFabricantes($conexao);
-    $fabricante = lerUmFabricante($conexao, $id, $nome);
-    $produto = lerUmProduto($conexao, $id, $nome, $preco, $quantidade, $descricao, $fabricante_id);
-    if (isset($_POST['atualizar'])) {
-        require_once "../src/funcoes-produtos.php";
-        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-        $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-        $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
-        $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
-        $fabricante_id = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
- 
-    
-    }
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $produto = lerUmProduto($conexao, $id);
+
+
 ?> 
 
 
@@ -36,31 +27,31 @@ require_once "../src/funcoes-produtos.php";
         <form action="" method="post">
         <p>
         <label for="nome">Produto</label>
-        <input type="text" name="nome" id="nome" placeholder="Digite o nome do produto" required>
+        <input type="text" name="nome" value="<?= $produto['nome']?>" id="nome" required>
         </p>
         <p>
         <label for="preco"> Preço</label>
-        <input type="number" name="preco"  id="preco" max="10000" step="0.01" required>
+        <input type="number" name="preco"  value="<?= $produto['preco']?>" id="preco" max="10000" step="0.01" required>
         </p>
 
         <p>
         <label for="quantidade"> Quantidade</label>
-        <input type="number" name="quantidade"  id="quantidade" max="100" required>
+        <input type="number" name="quantidade"  value="<?= $produto['quantidade']?>" id="quantidade" max="100" required>
         </p>
 
         <p>
         <label for=""> Descrição </label>
-        <textarea name="descricao" id="descricao" cols="28" rows="5" required></textarea>
+        <textarea name="descricao" id="descricao" cols="28" rows="5" required><?= $produto['descricao']?></textarea>
         </p>
 
         <p>
         <label for="fabricante_id">Fabricante</label>
         <select name="fabricante_id" id="fabricante_id" required>
-            <option value="<?= $fabricante['nome']?>">Selecione</option>
+            <option selected value="<?= $fabricante['nome']?>">Selecione</option>
 
             <?php 
             require_once "../src/funcoes-fabricantes.php";
-            $listaDeFabricantes = lerFabricantes($conexao);
+           
             foreach($listaDeFabricantes as $fabricante){ 
                       
             ?>

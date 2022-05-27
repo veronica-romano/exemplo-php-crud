@@ -25,7 +25,7 @@ $listaDeProdutos = lerProdutos($conexao);
             <article>
                 <hr>
                 <h3 class="produto-nome">Produto: <?= $produto['produto']?></h3>
-                <p class="id">ID: <?= $produto['id']?></p>
+                <p class="id">ID: <?= $produto['idproduto']?></p>
                 <p class="fabricante-nome">Fabricante: <?= $produto['fabricante']?></p>
                 <p class="produto-preco">Preço: R$: <?= number_format($produto['preco'], 2, ',', '.',)?></p>
                 <p class="produto-quantidade">Estoque: <?= $produto['quantidade']?></p>
@@ -35,8 +35,8 @@ $listaDeProdutos = lerProdutos($conexao);
                 </details>
             </article>
             <div class="acoes"> Ações: 
-                <a href="atualizar.php?id=<?=$produto['id']?>">Atualizar</a>
-                <a href="excluir.php?id=<?=$produto['id']?>" class="exclusao" onclick() >Excluir</a>
+                <a href="atualizar.php?id=<?=$produto['idproduto']?>">Atualizar</a>
+                <a href="excluir.php?id=<?=$produto['idproduto']?>" class="exclusao" onclick() >Excluir</a>
             </div>
         <?php  
     }
