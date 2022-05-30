@@ -70,3 +70,14 @@ function atualizarProduto(PDO  $conexao, int $id, string $nome, float $preco, in
        die("Erro: ".$erro->getMessage());
     }
 }
+
+function excluirProduto(PDO $conexao, int $id):void{
+    $sql = "DELETE FROM produtos WHERE id = :id";
+    try {
+        $consulta = $conexao->prepare($sql);
+        $consulta->bindParam(':id', $id, PDO::PARAM_INT);
+        $consulta->execute();
+    } catch (Exception $erro) {
+        die("Erro: ".$erro->getMessage());
+    }
+}
