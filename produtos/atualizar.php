@@ -7,7 +7,7 @@ require_once "../src/funcoes-produtos.php";
 
 
     $listaDeFabricantes = lerFabricantes($conexao);
-    if (isset($_POST['inserir'])) {
+    if (isset($_POST['atualizar'])) {
         require_once "../src/funcoes-produtos.php";
         $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
         $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
@@ -15,7 +15,7 @@ require_once "../src/funcoes-produtos.php";
         $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
         $fabricante_id = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
     
-        inserirProduto($conexao, $nome, $preco, $quantidade, $descricao, $fabricante_id);
+        atualizarProduto($conexao, $id, $nome, $preco, $quantidade, $descricao, $fabricante_id);
     
         header("location:listar.php");
     
