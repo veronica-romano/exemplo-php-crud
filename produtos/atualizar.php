@@ -47,15 +47,19 @@ require_once "../src/funcoes-produtos.php";
         <p>
         <label for="fabricante_id">Fabricante</label>
         <select name="fabricante_id" id="fabricante_id" required>
-            <option selected value="<?= $fabricante['nome']?>">Selecione</option>
-
+            <option selected value=""></option>
             <?php 
             require_once "../src/funcoes-fabricantes.php";
            
             foreach($listaDeFabricantes as $fabricante){ 
                       
             ?>
-            <option value="<?= $fabricante['id']?>"> <?= $fabricante['nome']?></option>
+            <option <?php 
+            if ($produto['fabricante_id'] === $fabricante['id']) {
+                echo " selected ";
+            }
+            
+            ?> value="<?= $fabricante['id']?>"> <?= $fabricante['nome']?></option>
             
             <?php  
             }
