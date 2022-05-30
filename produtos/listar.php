@@ -43,6 +43,8 @@ $listaDeProdutos = lerProdutos($conexao);
 ?>
         </div>   
     </div>
+
+    <script src="script-listar.js"></script>
 </body>
 </html>
 
