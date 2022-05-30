@@ -47,7 +47,7 @@ require_once "../src/funcoes-produtos.php";
         <p>
         <label for="fabricante_id">Fabricante</label>
         <select name="fabricante_id" id="fabricante_id" required>
-            <option selected value=""></option>
+            <option selected value="">Selecione</option>
             <?php 
             require_once "../src/funcoes-fabricantes.php";
            
