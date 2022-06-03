@@ -7,7 +7,7 @@ for(let i = 0; i < links.length; i++){
         event.preventDefault();
         let resposta = confirm('Deseja mesmo excluir?');
         if (resposta) {
-            location.href = links[id].getAttribute('href');
+            location.href = links[i].getAttribute('href');
         }
     });
 }
