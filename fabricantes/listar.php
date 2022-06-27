@@ -1,6 +1,11 @@
 <?php
-require_once "../src/funcoes-fabricantes.php";
-$listaDeFabricantes = lerFabricantes($conexao);
+
+use CrudPoo\Fabricante;
+
+require_once "../vendor/autoload.php";
+$fabricante = new Fabricante;
+
+$listaDeFabricantes = $fabricante->lerFabricantes();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,9 +1,12 @@
 <?php
+    
+    use CrudPoo\Fabricante;
+    require_once "../vendor/autoload.php";
+
     if(isset($_POST['inserir'])){
-        //echo "ok!";
-        require_once "../src/funcoes-fabricantes.php";
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-        inserirFabricante($conexao, $nome);
+        $fabricante = new Fabricante;
+        $fabricante->setNome(filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS));
+        $fabricante->inserirFabricante();
         header("location:listar.php");
     }
 ?>
