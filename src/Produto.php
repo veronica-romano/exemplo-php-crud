@@ -49,6 +49,48 @@ final class Produto{
     }
 
 
+    public function lerUmProduto():array{
+        $sql = "SELECT id, nome, preco, quantidade, descricao, fabricante_id FROM produtos WHERE id = :id";
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(':id', $this->id, PDO::PARAM_INT);
+            $consulta->execute();
+            //$resultado = $consulta->fetch(PDO::FETCH_ASSOC); 
+            $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $erro) {
+            die("Erro: ".$erro->getMessage());
+        } 
+        return $resultado;
+    }
+    
+    public function atualizarProduto():void{
+        $sql = "UPDATE produtos SET nome = :nome, preco = :preco, quantidade = :quantidade, descricao = :descricao, fabricante_id = :fabricante_id WHERE id = :id";
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(':id', $this->id, PDO::PARAM_INT);
+            $consulta->bindParam(':nome', $this->nome, PDO::PARAM_STR);
+            $consulta->bindParam(':preco', $this->preco, PDO::PARAM_STR);
+            $consulta->bindParam(':quantidade', $this->quantidade, PDO::PARAM_INT);
+            $consulta->bindParam(':descricao', $this->descricao, PDO::PARAM_STR);
+            $consulta->bindParam(':fabricante_id', $this->fabricante_id, PDO::PARAM_INT);
+            $consulta->execute();
+        } catch (Exception $erro) {
+           die("Erro: ".$erro->getMessage());
+        }
+    }
+
+    public function excluirProduto():void{
+        $sql = "DELETE FROM produtos WHERE id = :id";
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(':id', $this->id, PDO::PARAM_INT);
+            $consulta->execute();
+        } catch (Exception $erro) {
+            die("Erro: ".$erro->getMessage());
+        }
+    }
+
+
     public function getId(): int
     {
         return $this->id;

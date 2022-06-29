@@ -1,8 +1,12 @@
 <?php
-require_once "../src/funcoes-produtos.php";
+
+use CrudPoo\Produto;
+
+require_once "../vendor/autoload.php";
 //obtendo o valor do parâmetro da url
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-    excluirProduto($conexao, $id);
+    $produto = new Produto;
+    $produto->setId($_GET['id']);
+    $produto->excluirProduto();
     header("location:listar.php");
   
 

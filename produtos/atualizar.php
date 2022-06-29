@@ -1,21 +1,21 @@
 <?php
-require_once "../src/funcoes-fabricantes.php";
-require_once "../src/funcoes-produtos.php";
-    $listaDeFabricantes = lerFabricantes($conexao);
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-    $produto = lerUmProduto($conexao, $id);
+use CrudPoo\Fabricante;
+use CrudPoo\Produto;
+require_once "../vendor/autoload.php";
 
-
-    $listaDeFabricantes = lerFabricantes($conexao);
+$fabricante = new Fabricante;
+$produto = new Produto;
+$listaDeFabricantes = $fabricante->lerFabricantes();
+    $produto->setId($_GET['id']);
+    $arrProduto = $produto->lerUmProduto();
     if (isset($_POST['atualizar'])) {
-        require_once "../src/funcoes-produtos.php";
-        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
-        $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-        $quantidade = filter_input(INPUT_POST, 'quantidade', FILTER_SANITIZE_NUMBER_INT);
-        $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_SPECIAL_CHARS);
-        $fabricante_id = filter_input(INPUT_POST, 'fabricante_id', FILTER_SANITIZE_NUMBER_INT);
+        $produto->setNome($_POST['nome']);
+        $produto->setPreco($_POST['preco']);
+        $produto->setQuantidade($_POST['quantidade']);
+        $produto->setDescricao($_POST['descricao']);
+        $produto->setFabricanteId($_POST['fabricante_id']);
     
-        atualizarProduto($conexao, $id, $nome, $preco, $quantidade, $descricao, $fabricante_id);
+        $produto->atualizarProduto();
     
         header("location:listar.php");
     
@@ -42,35 +42,33 @@ require_once "../src/funcoes-produtos.php";
         <form action="" method="post">
         <p>
         <label for="nome">Produto</label>
-        <input type="text" name="nome" value="<?= $produto['nome']?>" id="nome" required>
+        <input type="text" name="nome" value="<?= $arrProduto['nome']?>" id="nome" required>
         </p>
         <p>
         <label for="preco"> Preço</label>
-        <input type="number" name="preco"  value="<?= $produto['preco']?>" id="preco" max="10000" step="0.01" required>
+        <input type="number" name="preco"  value="<?= $arrProduto['preco']?>" id="preco" max="10000" step="0.01" required>
         </p>
 
         <p>
         <label for="quantidade"> Quantidade</label>
-        <input type="number" name="quantidade"  value="<?= $produto['quantidade']?>" id="quantidade" max="100" required>
+        <input type="number" name="quantidade"  value="<?= $arrProduto['quantidade']?>" id="quantidade" max="100" required>
         </p>
 
         <p>
         <label for=""> Descrição </label>
-        <textarea name="descricao" id="descricao" cols="28" rows="5" required><?= $produto['descricao']?></textarea>
+        <textarea name="descricao" id="descricao" cols="28" rows="5" required><?= $arrProduto['descricao']?></textarea>
         </p>
 
         <p>
         <label for="fabricante_id">Fabricante</label>
         <select name="fabricante_id" id="fabricante_id" required>
             <option selected value="">Selecione</option>
-            <?php 
-            require_once "../src/funcoes-fabricantes.php";
-           
+            <?php     
             foreach($listaDeFabricantes as $fabricante){ 
                       
             ?>
             <option <?php 
-            if ($produto['fabricante_id'] === $fabricante['id']) {
+            if ($arrProduto['fabricante_id'] === $fabricante['id']) {
                 echo " selected ";
             }
             
