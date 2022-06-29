@@ -1,19 +1,19 @@
 <?php
 require_once "../src/conecta.php";
 
-function lerProdutos(PDO $conexao):array{
-    $sql = "SELECT produtos.id AS idproduto, produtos.nome AS produto, produtos.preco, produtos.quantidade, produtos.descricao, fabricantes.id, fabricantes.nome AS fabricante FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY produto";
+// function lerProdutos(PDO $conexao):array{
+//     $sql = "SELECT produtos.id AS idproduto, produtos.nome AS produto, produtos.preco, produtos.quantidade, produtos.descricao, fabricantes.id, fabricantes.nome AS fabricante FROM produtos INNER JOIN fabricantes ON produtos.fabricante_id = fabricantes.id ORDER BY produto";
 
-    try {
-        setlocale(LC_ALL, 'pt_BR');
-        $consulta = $conexao->prepare($sql);
-        $consulta->execute();
-        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-    } catch (Exception $erro) {
-       die("Erro: ".$erro->getMessage());
-    }
-    return $resultado;
-}
+//     try {
+//         setlocale(LC_ALL, 'pt_BR');
+//         $consulta = $conexao->prepare($sql);
+//         $consulta->execute();
+//         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+//     } catch (Exception $erro) {
+//        die("Erro: ".$erro->getMessage());
+//     }
+//     return $resultado;
+// }
 
 
 

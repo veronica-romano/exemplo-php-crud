@@ -19,7 +19,6 @@ abstract class Banco{
             self::$senha,
            );
            self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           echo "ok";
            
         } catch (Exception $erro) {
            die("Deu ruim: " . $erro->getMessage());
