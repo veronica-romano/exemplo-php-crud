@@ -9,7 +9,7 @@ final class Produto{
     private float $preco;
     private int $quantidade;
     private string $descricao;
-    private int $fabricanteId;
+    private int $fabricante_id;
     private PDO $conexao;
 
     public function __construct()
@@ -31,6 +31,22 @@ final class Produto{
         return $resultado;
     }
 
+    public function inserirProduto():void{
+        $sql = "INSERT INTO produtos(nome, preco, quantidade, descricao, fabricante_id) VALUES(:nome, :preco, :quantidade, :descricao, :fabricante_id)";
+    
+        try {
+            $consulta = $this->conexao->prepare($sql);
+            $consulta->bindParam(':nome', $this->nome, PDO::PARAM_STR);
+            $consulta->bindParam(':preco', $this->preco, PDO::PARAM_STR);
+            $consulta->bindParam(':quantidade', $this->quantidade, PDO::PARAM_INT);
+            $consulta->bindParam(':descricao', $this->descricao, PDO::PARAM_STR);
+            $consulta->bindParam(':fabricante_id', $this->fabricante_id, PDO::PARAM_INT);
+            $consulta->execute();
+        } catch (Exception $erro) {
+           die("Erro: ".$erro->getMessage());
+        }
+    
+    }
 
 
     public function getId(): int
@@ -39,7 +55,7 @@ final class Produto{
     }
     public function setId(int $id)
     {
-        $this->id = $id;
+        $this->id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
 
         return $this;
     }
@@ -50,7 +66,7 @@ final class Produto{
     }
     public function setNome(string $nome)
     {
-        $this->nome = $nome;
+        $this->nome = filter_var($nome, FILTER_SANITIZE_SPECIAL_CHARS);
 
         return $this;
     }
@@ -61,7 +77,7 @@ final class Produto{
     }
     public function setPreco(float $preco): self
     {
-        $this->preco = $preco;
+        $this->preco = filter_var($preco, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
         return $this;
     }
@@ -73,7 +89,7 @@ final class Produto{
     }
     public function setQuantidade(int $quantidade): self
     {
-        $this->quantidade = $quantidade;
+        $this->quantidade = filter_var($quantidade, FILTER_SANITIZE_NUMBER_INT);
 
         return $this;
     }
@@ -85,19 +101,18 @@ final class Produto{
     }
     public function setDescricao(string $descricao): self
     {
-        $this->descricao = $descricao;
+        $this->descricao = filter_var($descricao, FILTER_SANITIZE_SPECIAL_CHARS);
 
         return $this;
     }
 
- 
     public function getFabricanteId(): int
     {
-        return $this->fabricanteId;
+        return $this->fabricante_id;
     }
-    public function setFabricanteId(int $fabricanteId): self
+    public function setFabricanteId(int $fabricante_id): self
     {
-        $this->fabricanteId = $fabricanteId;
+        $this->fabricante_id = filter_var($fabricante_id, FILTER_SANITIZE_NUMBER_INT);
 
         return $this;
     }

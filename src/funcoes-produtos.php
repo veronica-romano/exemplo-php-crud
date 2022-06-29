@@ -24,22 +24,22 @@ function dump($dados){
     echo "<pre>";
 }
 
-function inserirProduto(PDO  $conexao, string $nome, float $preco, int $quantidade, string $descricao, int $fabricante_id):void{
-    $sql = "INSERT INTO produtos(nome, preco, quantidade, descricao, fabricante_id) VALUES(:nome, :preco, :quantidade, :descricao, :fabricante_id)";
+// function inserirProduto(PDO  $conexao, string $nome, float $preco, int $quantidade, string $descricao, int $fabricante_id):void{
+//     $sql = "INSERT INTO produtos(nome, preco, quantidade, descricao, fabricante_id) VALUES(:nome, :preco, :quantidade, :descricao, :fabricante_id)";
 
-    try {
-        $consulta = $conexao->prepare($sql);
-        $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
-        $consulta->bindParam(':preco', $preco, PDO::PARAM_STR);
-        $consulta->bindParam(':quantidade', $quantidade, PDO::PARAM_INT);
-        $consulta->bindParam(':descricao', $descricao, PDO::PARAM_STR);
-        $consulta->bindParam(':fabricante_id', $fabricante_id, PDO::PARAM_INT);
-        $consulta->execute();
-    } catch (Exception $erro) {
-       die("Erro: ".$erro->getMessage());
-    }
+//     try {
+//         $consulta = $conexao->prepare($sql);
+//         $consulta->bindParam(':nome', $nome, PDO::PARAM_STR);
+//         $consulta->bindParam(':preco', $preco, PDO::PARAM_STR);
+//         $consulta->bindParam(':quantidade', $quantidade, PDO::PARAM_INT);
+//         $consulta->bindParam(':descricao', $descricao, PDO::PARAM_STR);
+//         $consulta->bindParam(':fabricante_id', $fabricante_id, PDO::PARAM_INT);
+//         $consulta->execute();
+//     } catch (Exception $erro) {
+//        die("Erro: ".$erro->getMessage());
+//     }
 
-}
+// }
 
 function lerUmProduto(PDO $conexao, int $id):array{
     $sql = "SELECT id, nome, preco, quantidade, descricao, fabricante_id FROM produtos WHERE id = :id";

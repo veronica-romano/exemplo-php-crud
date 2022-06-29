@@ -1,6 +1,11 @@
 <?php
-require_once "../src/funcoes-produtos.php";
-$listaDeProdutos = lerProdutos($conexao);
+require_once "../vendor/autoload.php";
+use CrudPoo\Produto;
+
+$produto = new Produto;
+$listaDeProdutos = $produto->lerProdutos();
+
+
 ?>
 
 <!DOCTYPE html>
