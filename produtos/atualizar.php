@@ -36,9 +36,7 @@ $listaDeFabricantes = $fabricante->lerFabricantes();
     <div class="container">
         <h1>Produtos | Update</h1>
         <hr>
-
         <p><a href="../produtos/listar.php">Voltar para a lista de produtos</a></p>
-
         <form action="" method="post">
         <p>
         <label for="nome">Produto</label>
@@ -48,7 +46,6 @@ $listaDeFabricantes = $fabricante->lerFabricantes();
         <label for="preco"> Preço</label>
         <input type="number" name="preco"  value="<?= $arrProduto['preco']?>" id="preco" max="10000" step="0.01" required>
         </p>
-
         <p>
         <label for="quantidade"> Quantidade</label>
         <input type="number" name="quantidade"  value="<?= $arrProduto['quantidade']?>" id="quantidade" max="100" required>

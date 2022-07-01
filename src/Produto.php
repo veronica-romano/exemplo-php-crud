@@ -117,7 +117,7 @@ final class Produto{
     {
         return $this->preco;
     }
-    public function setPreco(float $preco): self
+    public function setPreco(float $preco)
     {
         $this->preco = filter_var($preco, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
 
@@ -129,7 +129,7 @@ final class Produto{
     {
         return $this->quantidade;
     }
-    public function setQuantidade(int $quantidade): self
+    public function setQuantidade(int $quantidade)
     {
         $this->quantidade = filter_var($quantidade, FILTER_SANITIZE_NUMBER_INT);
 
@@ -141,7 +141,7 @@ final class Produto{
     {
         return $this->descricao;
     }
-    public function setDescricao(string $descricao): self
+    public function setDescricao(string $descricao)
     {
         $this->descricao = filter_var($descricao, FILTER_SANITIZE_SPECIAL_CHARS);
 
