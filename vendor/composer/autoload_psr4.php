@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Diversos\\' => array($baseDir . '/diversos'),
     'CrudPoo\\' => array($baseDir . '/src'),
 );

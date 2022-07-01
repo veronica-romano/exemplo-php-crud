@@ -5,7 +5,9 @@ require_once "../vendor/autoload.php";
 
 $fabricante = new Fabricante;
 $produto = new Produto;
+
 $listaDeFabricantes = $fabricante->lerFabricantes();
+
     $produto->setId($_GET['id']);
     $arrProduto = $produto->lerUmProduto();
     if (isset($_POST['atualizar'])) {
