@@ -4,8 +4,5 @@
             "CrudPoo\\" : "src/",
             "Diversos\\" : "diversos/"
         }
-    },
-    "require": {
-        "twbs/bootstrap": "5.2.0-beta1"
     }
 }
