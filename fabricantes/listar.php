@@ -21,7 +21,23 @@ $listaDeFabricantes = $fabricante->lerFabricantes();
         <a href="../index.php">Home</a>
         <hr>
         <h2>Lendo e carregando todos os fabricantes</h2>
-        <p><a href="../fabricantes/inserir.php">Inserir um novo fabricante</a></p>
+        <p><a href="../fabricantes/inserir.php">Inserir um novo fabricante</a> 
+        
+        <?php
+            if (isset($_GET['exportarpdf'])) {
+                //inicializar sessão PHP
+                session_start();
+
+                //criar variável de sessão
+                $_SESSION["dados"] = $listaDeFabricantes;
+
+                //redirecionando para o script de exportação
+               header("location:../exportarpdf.php");
+            }
+        ?>
+        |
+        <a href="?exportarpdf"> Exportar em PDF</a></p>
+        
         <?php
            /* if (isset($_GET['status'])) {
                 ?>
